@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>One Last Surprise ✨</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+
+    background:
+    radial-gradient(
+        circle at 50% 42%,
+        #85154d 0%,
+        #5b0934 38%,
+        #32001e 68%,
+        #17000e 100%
+    );
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 380px;
+    height: 380px;
+
+    top: 42%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: #ff167d;
+
+    filter: blur(130px);
+
+    opacity: .12;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+    0 0 10px white;
+
+    opacity: .75;
+
+    animation:
+    twinkle 3s infinite ease-in-out;
+}
+
+.s1 {
+    top: 20%;
+    left: 10%;
+}
+
+.s2 {
+    top: 24%;
+    left: 66%;
+    animation-delay: 1s;
+}
+
+.s3 {
+    top: 29%;
+    left: 86%;
+    animation-delay: 2s;
+}
+
+.s4 {
+    top: 63%;
+    left: 8%;
+    animation-delay: .5s;
+}
+
+.s5 {
+    top: 71%;
+    left: 92%;
+    animation-delay: 1.5s;
+}
+
+.s6 {
+    top: 88%;
+    left: 45%;
+    animation-delay: 2.5s;
+}
+
+.s7 {
+    top: 55%;
+    left: 93%;
+    animation-delay: .8s;
+}
+
+@keyframes twinkle {
+
+    0%,100% {
+        transform: scale(.7);
+        opacity: .35;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    padding:
+    70px 18px 50px;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+
+    margin: 0;
+
+    font-size: 46px;
+
+    line-height: 1.08;
+
+    font-weight: 700;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.3),
+    0 0 25px rgba(255,35,145,.35);
+
+    animation:
+    titleIn 1.2s ease;
+}
+
+@keyframes titleIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+        translateY(25px)
+        scale(.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.subtitle {
+
+    margin-top: 22px;
+
+    font-size: 21px;
+
+    color: #ffd7e9;
+
+    animation:
+    fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   VIDEO CARD
+   EXACT 9 : 16
+========================= */
+
+.video-card {
+
+    width: min(82vw, 360px);
+
+    aspect-ratio: 9 / 16;
+
+    margin:
+    45px auto 38px;
+
+    padding: 13px;
+
+    border-radius: 30px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    2px solid rgba(255,255,255,.28);
+
+    box-shadow:
+
+    0 0 18px rgba(255,30,140,.25),
+
+    0 0 45px rgba(255,30,140,.15),
+
+    0 18px 55px rgba(0,0,0,.4);
+
+    backdrop-filter:
+    blur(8px);
+
+    animation:
+    videoIn 1.4s ease;
+}
+
+@keyframes videoIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+        translateY(35px)
+        scale(.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-card video {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    border: none;
+
+    border-radius: 21px;
+
+    background: #000;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   MEMORY TEXT
+========================= */
+
+.memory-text {
+
+    margin-top: 5px;
+
+    font-size: 21px;
+
+    line-height: 1.4;
+
+    color: #ffe6f0;
+
+    animation:
+    fadeUp 1.8s ease;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+        translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+        translateY(0);
+    }
+}
+
+
+/* =========================
+   FLOWER
+========================= */
+
+.flower {
+
+    margin-top: 10px;
+
+    font-size: 32px;
+
+    animation:
+    flowerMove 3s
+    ease-in-out
+    infinite;
+}
+
+@keyframes flowerMove {
+
+    0%,100% {
+        transform:
+        translateY(0)
+        rotate(-5deg);
+    }
+
+    50% {
+        transform:
+        translateY(-7px)
+        rotate(5deg);
+    }
+}
+
+
+/* =========================
+   REPLAY BUTTON
+========================= */
+
+.replay-btn {
+
+    margin-top: 28px;
+
+    padding:
+    15px 50px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff3d91,
+        #ed2379
+    );
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    box-shadow:
+    0 0 20px rgba(255,40,140,.45);
+
+    transition:
+    .25s ease;
+}
+
+.replay-btn:hover {
+
+    transform:
+    scale(1.06);
+
+    box-shadow:
+    0 0 35px rgba(255,40,140,.7);
+}
+
+.replay-btn:active {
+    transform:
+    scale(.95);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+
+        padding:
+        65px 15px 45px;
+    }
+
+    h1 {
+
+        font-size: 39px;
+
+    }
+
+    .subtitle {
+
+        font-size: 18px;
+
+        margin-top: 20px;
+
+    }
+
+    .video-card {
+
+        width: 82vw;
+
+        max-width: 360px;
+
+        aspect-ratio: 9 / 16;
+
+        padding: 12px;
+
+        border-radius: 28px;
+
+        margin-top: 40px;
+
+    }
+
+    .video-card video {
+
+        border-radius: 20px;
+
+    }
+
+    .memory-text {
+
+        font-size: 18px;
+
+    }
+
+    .flower {
+
+        font-size: 29px;
+
+    }
+
+    .replay-btn {
+
+        font-size: 19px;
+
+        padding:
+        14px 45px;
+
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- STARS -->
+
+<div class="stars">
+
+    <div class="star s1"></div>
+    <div class="star s2"></div>
+    <div class="star s3"></div>
+    <div class="star s4"></div>
+    <div class="star s5"></div>
+    <div class="star s6"></div>
+    <div class="star s7"></div>
+
+</div>
+
+
+<div class="container">
+
+
+    <!-- TITLE -->
+
+    <h1>
+        One Last Little<br>
+        Surprise ✨
+    </h1>
+
+
+    <!-- SUBTITLE -->
+
+    <div class="subtitle">
+        Before this little journey comes to an end... 💗
+    </div>
+
+
+    <!-- 9:16 VIDEO -->
+
+    <div class="video-card">
+
+        <video
+            id="memoryVideo"
+            controls
+            playsinline
+            preload="metadata"
+        >
+
+            <source
+                src="VN20260920_111701.mp4"
+                type="video/mp4"
+            >
+
+            Your browser does not support video.
+
+        </video>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div class="memory-text">
+        And that's a little piece of the memories...
+    </div>
+
+
+    <!-- FLOWER -->
+
+    <div class="flower">
+        🌸
+    </div>
+
+
+    <!-- REPLAY -->
+
+    <button
+        class="replay-btn"
+        id="replayBtn"
+    >
+        Replay ✨
+    </button>
+
+
+</div>
+
+
+<script>
+
+const video =
+document.getElementById("memoryVideo");
+
+const replayBtn =
+document.getElementById("replayBtn");
+
+
+replayBtn.addEventListener(
+    "click",
+    function() {
+
+        video.currentTime = 0;
+
+        video.play();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

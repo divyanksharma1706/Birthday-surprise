@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/index.js"></script>
+
+  <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Surprise Awaits</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    font-family: Georgia, serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #4b102d 0%,
+            #260818 35%,
+            #10000b 70%,
+            #050006 100%
+        );
+
+    color: white;
+}
+
+
+/* =========================
+   GLOWING STARS
+========================= */
+
+.star {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffd95c;
+
+    box-shadow:
+        0 0 8px #ffd95c,
+        0 0 20px #ff9d00;
+
+    animation: twinkle 2s infinite alternate;
+}
+
+.star1 {
+    top: 10%;
+    left: 8%;
+}
+
+.star2 {
+    top: 18%;
+    left: 43%;
+    animation-delay: .5s;
+}
+
+.star3 {
+    top: 26%;
+    left: 87%;
+    animation-delay: 1s;
+}
+
+.star4 {
+    top: 42%;
+    left: 15%;
+    animation-delay: .3s;
+}
+
+.star5 {
+    top: 48%;
+    left: 74%;
+    animation-delay: 1.2s;
+}
+
+.star6 {
+    top: 68%;
+    left: 25%;
+    animation-delay: .7s;
+}
+
+.star7 {
+    top: 76%;
+    left: 88%;
+    animation-delay: 1.5s;
+}
+
+.star8 {
+    top: 84%;
+    left: 52%;
+    animation-delay: .4s;
+}
+
+
+@keyframes twinkle {
+
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.container {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+.title {
+
+    font-size: clamp(25px, 6vw, 38px);
+
+    color: #f5dca7;
+
+    margin-bottom: 10px;
+
+    animation: fadeIn 1.5s ease;
+}
+
+
+.subtitle {
+
+    font-size: 13px;
+
+    color: #d7b9c7;
+
+    margin-bottom: 45px;
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift {
+
+    position: relative;
+
+    width: 170px;
+    height: 145px;
+
+    cursor: pointer;
+
+    animation: floating 2.5s ease-in-out infinite;
+
+    transition: transform .3s ease;
+}
+
+.gift:active {
+
+    transform: scale(.92);
+}
+
+
+/* Box */
+
+.box {
+
+    position: absolute;
+
+    left: 15px;
+    bottom: 0;
+
+    width: 140px;
+    height: 100px;
+
+    border-radius: 0 0 18px 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff3ca8,
+            #e0007d
+        );
+
+    box-shadow:
+        0 18px 35px rgba(255, 0, 130, .35),
+        inset 0 5px 10px rgba(255,255,255,.15);
+}
+
+
+/* Lid */
+
+.lid {
+
+    position: absolute;
+
+    left: 7px;
+    top: 25px;
+
+    width: 156px;
+    height: 45px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff4ab0,
+            #df007b
+        );
+
+    z-index: 3;
+}
+
+
+/* Vertical ribbon */
+
+.ribbon {
+
+    position: absolute;
+
+    left: 73px;
+    bottom: 0;
+
+    width: 25px;
+    height: 120px;
+
+    background:
+        linear-gradient(
+            to right,
+            #ffe17b,
+            #ffb52f,
+            #ffe58a
+        );
+
+    z-index: 4;
+}
+
+
+/* Ribbon top */
+
+.ribbonTop {
+
+    position: absolute;
+
+    left: 57px;
+    top: 5px;
+
+    width: 57px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #ffd55c;
+
+    z-index: 5;
+}
+
+
+/* Bow */
+
+.bowLeft,
+.bowRight {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 48px;
+    height: 30px;
+
+    background: #ffd55c;
+
+    border-radius: 50%;
+
+    z-index: 6;
+}
+
+
+.bowLeft {
+
+    left: 25px;
+
+    transform: rotate(-25deg);
+}
+
+
+.bowRight {
+
+    right: 25px;
+
+    transform: rotate(25deg);
+}
+
+
+/* Tap text */
+
+.tap {
+
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    color: #d8c0cc;
+
+    animation: pulse 1.5s infinite;
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+@keyframes pulse {
+
+    50% {
+        opacity: .45;
+    }
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   CURTAIN
+========================= */
+
+.curtain {
+
+    position: fixed;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #52001f 0px,
+            #8b0037 18px,
+            #b5004d 30px,
+            #5a0024 45px
+        );
+
+    box-shadow:
+        inset 0 0 30px rgba(0,0,0,.5);
+
+    transition:
+        transform 1.2s
+        cubic-bezier(.8,0,.2,1);
+}
+
+
+.leftCurtain {
+
+    left: 0;
+
+    transform: translateX(-100%);
+}
+
+
+.rightCurtain {
+
+    right: 0;
+
+    transform: translateX(100%);
+}
+
+
+/* Curtain comes together */
+
+.leftCurtain.close {
+
+    transform: translateX(0);
+}
+
+
+.rightCurtain.close {
+
+    transform: translateX(0);
+}
+
+</style>
+</>
+
+
+<body>
+
+
+<!-- =========================
+     STARS
+========================= -->
+
+<div class="star star1"></div>
+<div class="star star2"></div>
+<div class="star star3"></div>
+<div class="star star4"></div>
+<div class="star star5"></div>
+<div class="star star6"></div>
+<div class="star star7"></div>
+<div class="star star8"></div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+    <div class="title">
+        A surprise awaits you... ✨
+    </div>
+
+    <div class="subtitle">
+        Something special, just for you ♡
+    </div>
+
+
+    <!-- GIFT -->
+
+    <div
+        class="gift"
+        onclick="openGift()"
+    >
+
+        <div class="bowLeft"></div>
+
+        <div class="bowRight"></div>
+
+        <div class="ribbonTop"></div>
+
+        <div class="lid"></div>
+
+        <div class="box"></div>
+
+        <div class="ribbon"></div>
+
+    </div>
+
+
+    <div class="tap">
+        Tap the gift to open 🎁
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     CURTAINS
+========================= -->
+
+<div
+    class="curtain leftCurtain"
+    id="leftCurtain">
+</div>
+
+<div
+    class="curtain rightCurtain"
+    id="rightCurtain">
+</div>
+
+
+
+<script>
+
+function openGift() {
+
+    /*
+       Curtain close
+    */
+
+    document
+        .getElementById("leftCurtain")
+        .classList.add("close");
+
+    document
+        .getElementById("rightCurtain")
+        .classList.add("close");
+
+
+    /*
+       Wait for curtain
+       then open second page
+    */
+
+    setTimeout(function() {
+
+        window.location.href = "./2Surprise.html";
+
+    }, 1250);
+
+}
+
+</script>
+
+</body>
+</>

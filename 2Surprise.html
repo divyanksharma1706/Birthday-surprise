@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Happy Birthday ❤️</title>
+
+
+<style>
+  /* =========================
+   FLOATING BALLOONS
+========================= */
+
+.balloons {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+    width: 55px;
+    height: 75px;
+    border-radius: 50%;
+    opacity: 0.9;
+
+    animation: balloonFloat 10s linear infinite;
+}
+
+/* Balloon string */
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 75px;
+    background: rgba(255,255,255,0.45);
+
+    left: 50%;
+    top: 72px;
+}
+
+/* Balloon knot */
+
+.balloon::before {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -7px;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 9px solid currentColor;
+}
+
+
+/* Different balloons */
+
+.b1 {
+    left: 5%;
+    bottom: -100px;
+    background: #ff4f91;
+    color: #ff4f91;
+    animation-delay: 0s;
+}
+
+.b2 {
+    left: 18%;
+    bottom: -150px;
+    background: #a94de8;
+    color: #a94de8;
+    animation-delay: 2s;
+}
+
+.b3 {
+    left: 35%;
+    bottom: -120px;
+    background: #ff3f7f;
+    color: #ff3f7f;
+    animation-delay: 4s;
+}
+
+.b4 {
+    left: 52%;
+    bottom: -180px;
+    background: #ffb52e;
+    color: #ffb52e;
+    animation-delay: 1s;
+}
+
+.b5 {
+    left: 68%;
+    bottom: -100px;
+    background: #e94b83;
+    color: #e94b83;
+    animation-delay: 5s;
+}
+
+.b6 {
+    left: 82%;
+    bottom: -160px;
+    background: #9b45dc;
+    color: #9b45dc;
+    animation-delay: 3s;
+}
+
+.b7 {
+    left: 92%;
+    bottom: -130px;
+    background: #ff4d6d;
+    color: #ff4d6d;
+    animation-delay: 6s;
+}
+
+.b8 {
+    left: 45%;
+    bottom: -200px;
+    background: #ff6b35;
+    color: #ff6b35;
+    animation-delay: 7s;
+}
+
+
+/* Floating animation */
+
+@keyframes balloonFloat {
+
+    0% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    25% {
+        transform: translateY(-30vh) rotate(3deg);
+    }
+
+    50% {
+        transform: translateY(-60vh) rotate(-3deg);
+    }
+
+    75% {
+        transform: translateY(-90vh) rotate(3deg);
+    }
+
+    100% {
+        transform: translateY(-125vh) rotate(-3deg);
+    }
+
+}
+  /* =========================
+   FALLING PARTY CONFETTI
+========================= */
+
+.confetti-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.confetti {
+    position: absolute;
+    top: -40px;
+    width: 12px;
+    height: 18px;
+    opacity: 0;
+    animation: confettiFall linear forwards;
+}
+
+/* Different party shapes */
+.confetti.square {
+    border-radius: 2px;
+}
+
+.confetti.circle {
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+}
+
+.confetti.ribbon {
+    width: 7px;
+    height: 25px;
+    border-radius: 50%;
+    transform: rotate(25deg);
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg)
+            translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            rotate(180deg)
+            translateX(35px);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(115vh)
+            rotate(500deg)
+            translateX(-35px);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   BASIC
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family: Georgia, serif;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            #4a0c32,
+            #220718 45%,
+            #0b0008 100%
+        );
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.star {
+
+    position: fixed;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #ffd85c;
+
+    box-shadow:
+        0 0 10px #ffd85c,
+        0 0 22px #ff9c00;
+
+    animation:
+        blink 2s infinite alternate;
+
+    z-index: 2;
+}
+
+
+.s1 {
+    top: 10%;
+    left: 10%;
+}
+
+.s2 {
+    top: 18%;
+    left: 80%;
+    animation-delay: .5s;
+}
+
+.s3 {
+    top: 45%;
+    left: 15%;
+    animation-delay: 1s;
+}
+
+.s4 {
+    top: 60%;
+    left: 88%;
+    animation-delay: .3s;
+}
+
+.s5 {
+    top: 78%;
+    left: 30%;
+    animation-delay: .8s;
+}
+
+.s6 {
+    top: 35%;
+    left: 55%;
+    animation-delay: 1.3s;
+}
+
+
+@keyframes blink {
+
+    from {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+  .onemore-btn {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3ca8,
+            #d50076
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,0,130,.3);
+
+    transition: .3s;
+}
+
+.onemore-btn:active {
+
+    transform: scale(.94);
+
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main {
+
+    min-height: 100vh;
+
+    padding: 40px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* Heart */
+
+.heart {
+
+    font-size: 80px;
+
+    animation:
+        heartbeat 1.4s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+/* Heading */
+
+h1 {
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(35px, 9vw, 60px);
+
+    color: #ff42a7;
+
+    text-shadow:
+        0 0 20px rgba(255,0,140,.5);
+}
+
+
+/* Message */
+
+.message {
+
+    max-width: 600px;
+
+    margin-top: 25px;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+    color: #f1dce7;
+}
+
+
+/* Button */
+
+button {
+
+    margin-top: 35px;
+
+    padding:
+        14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3ca8,
+            #d50076
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,0,130,.3);
+}
+
+
+button:active {
+
+    transform: scale(.94);
+}
+
+
+/* =========================
+   CURTAIN
+========================= */
+
+.curtain {
+
+    position: fixed;
+
+    top: 0;
+
+    width: 50%;
+
+    height: 100%;
+
+    z-index: 9999;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            #52001f 0px,
+            #8b0037 18px,
+            #b5004d 30px,
+            #5a0024 45px
+        );
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(0,0,0,.5);
+
+    transition:
+        transform 1.3s
+        cubic-bezier(.8,0,.2,1);
+}
+
+
+/*
+   IMPORTANT:
+
+   Second page starts with
+   curtain CLOSED.
+*/
+
+.leftCurtain {
+
+    left: 0;
+
+    transform: translateX(0);
+}
+
+
+.rightCurtain {
+
+    right: 0;
+
+    transform: translateX(0);
+}
+
+
+/*
+   Then curtains open
+*/
+
+.leftCurtain.open {
+
+    transform:
+        translateX(-100%);
+}
+
+
+.rightCurtain.open {
+
+    transform:
+        translateX(100%);
+}
+  /* =========================
+   NEXT PAGE TRANSITION
+========================= */
+
+.next-transition {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle,
+            #ff3c9d,
+            #7b003d,
+            #120008
+        );
+
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity .6s ease;
+}
+
+.next-transition.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.transition-heart {
+    font-size: 90px;
+
+    animation: none;
+}
+
+.next-transition.show .transition-heart {
+    animation: finalHeart 1.4s ease forwards;
+}
+
+@keyframes finalHeart {
+
+    0% {
+        transform: scale(.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(6);
+        opacity: 0;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+  <!-- BALLOONS -->
+<div class="balloons">
+
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <div class="balloon b4"></div>
+    <div class="balloon b5"></div>
+    <div class="balloon b6"></div>
+    <div class="balloon b7"></div>
+    <div class="balloon b8"></div>
+
+</div>
+
+  <!-- PARTY CONFETTI -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- STARS -->
+
+<div class="star s1"></div>
+<div class="star s2"></div>
+<div class="star s3"></div>
+<div class="star s4"></div>
+<div class="star s5"></div>
+<div class="star s6"></div>
+
+
+
+<!-- =========================
+     BIRTHDAY CONTENT
+========================= -->
+
+<div class="main">
+
+    <div class="heart">
+        💖
+    </div>
+
+
+    <h1>
+        Happiest Birthday janvi! 🎂
+    </h1>
+
+
+    <div class="message">
+
+        happy birthday cutiee.. Wishing the sweetest day to someone with such a wonderful vibe ✨
+
+        <br><br>
+
+        May your day be filled with
+        happiness, beautiful memories
+        and lots of smiles. 💕
+
+        <br><br>
+
+        You deserve all the happiness
+        in the world. 🌸
+
+    </div>
+
+
+    <a href="3Onemore.html" class="onemore-btn" id="surpriseBtn">
+    One More Surprise 💌
+</a>
+
+      
+
+  
+
+</div>
+
+
+
+<!-- =========================
+     CURTAIN
+========================= -->
+
+<div
+    class="curtain leftCurtain"
+    id="leftCurtain">
+</div>
+
+
+<div
+    class="curtain rightCurtain"
+    id="rightCurtain">
+</div>
+
+
+
+<script>
+
+/*
+   When second webpage loads,
+   wait a little and open curtains.
+*/
+
+window.addEventListener("load", function() {
+
+    setTimeout(function() {
+
+        document
+            .getElementById("leftCurtain")
+            .classList.add("open");
+
+        document
+            .getElementById("rightCurtain")
+            .classList.add("open");
+
+    }, 300);
+
+});
+
+
+
+
+
+
+</script>
+
+<script>
+
+const confettiContainer =
+    document.getElementById("confettiContainer");
+
+const confettiShapes = [
+    "square",
+    "circle",
+    "ribbon"
+];
+
+const confettiColors = [
+    "#ff3b81",
+    "#ffcc33",
+    "#7c4dff",
+    "#00c2ff",
+    "#ff7043",
+    "#e91e63",
+    "#9c27b0"
+];
+
+function createConfetti() {
+
+    const confetti =
+        document.createElement("span");
+
+    confetti.classList.add(
+        "confetti",
+        confettiShapes[
+            Math.floor(
+                Math.random() *
+                confettiShapes.length
+            )
+        ]
+    );
+
+    confetti.style.left =
+        Math.random() * 100 + "vw";
+
+    confetti.style.background =
+        confettiColors[
+            Math.floor(
+                Math.random() *
+                confettiColors.length
+            )
+        ];
+
+    confetti.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+    confetti.style.animationDelay =
+        Math.random() * 2 + "s";
+
+    confettiContainer.appendChild(confetti);
+
+    setTimeout(() => {
+        confetti.remove();
+    }, 9000);
+}
+
+
+/* Continuous party confetti */
+
+for (let i = 0; i < 45; i++) {
+    createConfetti();
+}
+
+setInterval(() => {
+    createConfetti();
+}, 350);
+
+</script>
+  <!-- NEXT PAGE TRANSITION -->
+
+<div
+    class="next-transition"
+    id="nextTransition">
+
+    <div class="transition-heart">
+        ❤️
+    </div>
+
+</div>
+  <script>
+
+document
+    .getElementById("surpriseBtn")
+    .addEventListener("click", function () {
+
+        const transition =
+            document.getElementById("nextTransition");
+
+        transition.classList.add("show");
+
+
+        setTimeout(function () {
+
+            window.location.href =
+                "Heart.html";
+
+        }, 1500);
+
+    });
+
+  </script>
+</body>
+
+</html>

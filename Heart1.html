@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>One More Surprise ❤️</title>
+
+    <link rel="stylesheet"
+          href="css/index.css">
+
+</head>
+
+<body class="heart-page">
+
+    <div class="heart-scene">
+
+        <!-- Main Heart -->
+
+        <div class="main-heart" id="mainHeart">
+            ❤️
+        </div>
+
+
+        <!-- Arrow -->
+
+        <button class="heart-arrow"
+                id="heartArrow">
+
+            ↑
+
+        </button>
+
+
+        <!-- Message -->
+
+        <p class="click-message" id="clickMessage">
+            Tap the arrow ❤️
+        </p>
+
+
+        <!-- Tree -->
+
+        <div class="tree-container"
+             id="treeContainer">
+
+            <div class="tree">
+
+                <div class="trunk"></div>
+
+                <div class="branch branch1"></div>
+                <div class="branch branch2"></div>
+                <div class="branch branch3"></div>
+                <div class="branch branch4"></div>
+                <div class="branch branch5"></div>
+
+         <div class="tree-hearts">
+
+    
+
+                
+
+            </div>
+
+            <h1>
+                A Tree Full Of Love ❤️
+            </h1>
+
+            <p>
+                Some memories are meant to grow forever. ✨
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/heart.js"></script>
+<style>
+
+/* ❤️ TREE HEARTS */
+
+.tree-hearts {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    pointer-events: none;
+}
+
+.tree-hearts .heart400 {
+    position: absolute !important;
+    display: block !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    line-height: 1 !important;
+    font-size: 17px !important;
+
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    animation:
+        heart400Appear
+        0.32s
+        ease-out
+        forwards;
+}
+
+
+/* ❤️ HEART APPEAR */
+
+@keyframes heart400Appear {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+}
+  /* =========================
+   CONTINUE BUTTON
+========================= */
+
+.continue-container {
+    position: fixed;
+
+    left: 0;
+    bottom: 45px;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+}
+
+
+/* Animation complete hone ke baad */
+
+.continue-container.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* Button */
+
+.continue-btn {
+    position: relative;
+
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 70%;
+    max-width: 520px;
+
+    padding: 18px 30px;
+
+    border-radius: 60px;
+
+    background: #ff4081;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 26px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 25px rgba(255, 64, 129, 0.45);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Touch / click */
+
+.continue-btn:active {
+    transform: scale(0.95);
+}
+
+
+/* Hover */
+
+.continue-btn:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 8px 35px rgba(255, 64, 129, 0.65);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .continue-container {
+        bottom: 35px;
+    }
+
+    .continue-btn {
+        width: 75%;
+
+        padding: 17px 25px;
+
+        font-size: 24px;
+    }
+}
+
+</style>
+
+
+<script>
+
+/* ❤️ 400 HEARTS */
+
+const heartBox =
+    document.querySelector(".tree-hearts");
+
+const treeContainer =
+    document.getElementById("treeContainer");
+
+
+const heartTypes = [
+    "❤️",
+    "💕",
+    "💗",
+    "💖"
+];
+
+
+const TOTAL = 400;
+
+
+/* ❤️ Tree-shaped positions */
+
+const positions = [];
+
+for (let i = 0; i < TOTAL; i++) {
+
+    let x;
+    let y;
+
+    let good = false;
+
+    while (!good) {
+
+        /*
+         * Vertical position
+         *
+         * 0 = top
+         * 1 = bottom
+         */
+
+        const t =
+            Math.random();
+
+
+        /*
+         * Tree canopy
+         *
+         * Top = narrow
+         * Middle = wide
+         * Bottom = narrow
+         */
+
+        const width =
+            8 +
+            43 *
+            Math.pow(
+                Math.sin(Math.PI * t),
+                0.65
+            );
+
+
+        /*
+         * Center around 50%
+         */
+
+        x =
+            50 +
+            (Math.random() * 2 - 1)
+            * width;
+
+
+        /*
+         * Tree height
+         */
+
+        y =
+            10 +
+            t * 66;
+
+
+        /*
+         * Thoda natural movement
+         */
+
+        x +=
+            (Math.random() * 2 - 1) * 1.8;
+
+        y +=
+            (Math.random() * 2 - 1) * 1.2;
+
+
+        good = true;
+
+
+        /*
+         * Hearts ko bahut chipakne
+         * se rokna
+         */
+
+        for (const p of positions) {
+
+            const dx = x - p.x;
+            const dy = y - p.y;
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+
+            if (distance < 2.7) {
+
+                good = false;
+                break;
+
+            }
+
+        }
+
+    }
+
+
+    positions.push({
+        x: x,
+        y: y
+    });
+
+}
+
+
+/* ❤️ Hearts create */
+
+positions.forEach(
+    function(pos, i) {
+
+        const heart =
+            document.createElement("span");
+
+
+        heart.className =
+            "heart400";
+
+
+        heart.textContent =
+            heartTypes[
+                i % heartTypes.length
+            ];
+
+
+        heart.style.left =
+            pos.x + "%";
+
+
+        heart.style.top =
+            pos.y + "%";
+
+
+        /*
+         * One-by-one appearance
+         */
+
+        heart.style.animationDelay =
+            (i * 0.025) + "s";
+
+
+        /*
+         * Starting mein hidden
+         */
+
+        heart.style.animationPlayState =
+            "paused";
+
+
+        heartBox.appendChild(heart);
+
+    }
+);
+
+
+/* 🌳 Tree show hone ke baad */
+
+const observer =
+    new MutationObserver(
+        function() {
+
+            if (
+                treeContainer
+                .classList
+                .contains("show")
+            ) {
+
+                const hearts =
+                    document.querySelectorAll(
+                        ".heart400"
+                    );
+
+
+                hearts.forEach(
+                    function(heart) {
+
+                        heart.style
+                            .animationPlayState =
+                            "running";
+
+                    }
+                );
+
+
+                observer.disconnect();
+
+            }
+
+        }
+    );
+
+
+observer.observe(
+    treeContainer,
+    {
+        attributes: true,
+        attributeFilter: ["class"]
+    }
+);
+
+</script>
+      <div class="continue-container" id="continueContainer">
+
+    <a href="last.html" class="continue-btn">
+        Continue ✨
+    </a>
+
+      </div>
+</body>
+  <script>
+    const arrow = document.getElementById("heartArrow");
+    const heart = document.getElementById("mainHeart");
+    const tree = document.getElementById("treeContainer");
+    const message = document.getElementById("clickMessage");
+
+    arrow.addEventListener("click", function () {
+
+        // Arrow animation
+        arrow.classList.add("shoot");
+
+        // Message hide
+        message.style.opacity = "0";
+
+        // 1 second baad heart disappear
+        setTimeout(function () {
+
+            heart.style.opacity = "0";
+
+            // Tree show
+            tree.classList.add("show");
+
+        }, 1000);
+
+    });
+</script>
+<script>
+setTimeout(function () {
+
+    const continueContainer =
+        document.getElementById("continueContainer");
+
+    continueContainer.classList.add("show");
+
+}, 10000);
+</script>
+
+</html>

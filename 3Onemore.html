@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/index.js"></script>
+
+  <html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+/* Paper plane */
+.paper-plane {
+    position: fixed;
+    left: -100px;
+    top: 55%;
+    font-size: 55px;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(-10deg);
+}
+
+/* Plane flying animation */
+.paper-plane.fly {
+    opacity: 1;
+    animation: flyPlane 1.8s ease-in forwards;
+}
+
+@keyframes flyPlane {
+    0% {
+        left: -100px;
+        top: 55%;
+        transform: rotate(-10deg) scale(1);
+    }
+
+    50% {
+        left: 45%;
+        top: 35%;
+        transform: rotate(-5deg) scale(1.1);
+    }
+
+    100% {
+        left: 110%;
+        top: 10%;
+        transform: rotate(15deg) scale(0.8);
+    }
+}
+
+/* Screen transition */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    background: #ffd6e7;
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+.page-transition.show {
+    opacity: 1;
+}
+    </style>
+</>
+
+<body class="home">
+  <div class="fairy-lights">
+
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+    <span class="bulb"></span>
+
+  </div>
+
+    <div class="floating-heart heart1">💗</div>
+    <div class="floating-heart heart2">💕</div>
+    <div class="floating-heart heart3">💖</div>
+
+    <div class="container">
+
+        <div class="butterflies">
+            🦋 &nbsp;&nbsp; 🦋
+        </div>
+
+        <h1>
+            Happy Birthday,<br>
+            Beautiful! 💕
+        </h1>
+
+        <p class="intro">
+            Today is all about celebrating you and the joy
+            you bring to my life. May your special day be
+            filled with happiness, laughter and beautiful
+            memories. 💗
+        </p>
+
+        <!-- IMPORTANT -->
+        <!-- Ye button second webpage open karega -->
+
+        <a href="Surprise1.html" class="celebrate-btn" id="celebrateBtn">
+            Start the Celebration 🎉
+        </a>
+
+        <div class="scroll">
+            ♡
+        </div>
+
+    </div>
+  <div class="page-transition"></div>
+
+<div class="paper-plane" id="paperPlane">
+    ✈️
+</div>
+  <script>
+document.getElementById("celebrateBtn").addEventListener("click", function(event) {
+
+    event.preventDefault();
+
+    const plane = document.getElementById("paperPlane");
+    const transition = document.querySelector(".page-transition");
+
+    // Plane fly
+    plane.classList.add("fly");
+
+    // Background transition
+    setTimeout(function() {
+        transition.classList.add("show");
+    }, 900);
+
+    // Open second webpage
+    setTimeout(function() {
+        window.location.href = "Surprise1.html";
+    }, 1800);
+
+});
+  </script>
+  </html>
